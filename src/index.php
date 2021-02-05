@@ -36,7 +36,7 @@ context:'.json_encode($context, JSON_PRETTY_PRINT);
     
     $aid = $_GET['aid'];
     $bvid = $_GET['bvid'];
-    $hq = $_GET['hq']? 1 : 0;
+    $hq = $_GET['hq']!=="0"? 1 : 0;
     $danmaku = $_GET['danmaku']? 1 : 0;
     echo $api_base."/view?aid=$aid&bvid=$bvid";
     $result = httpGetJSON($api_base."/view?aid=$aid&bvid=$bvid");
