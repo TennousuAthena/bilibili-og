@@ -1,0 +1,38 @@
+app: Bilibili_OG
+component: scf
+inputs:
+  cls:
+    logsetId: c5349931-df9f-47d8-954d-625d6ad2e92f
+    topicId: f732fce7-ed3d-4355-a3fe-9a667ec38290
+  description: bilibili og share
+  eip: false
+  enableRoleAuth: true
+  events:
+    - apigw:
+        name: SCF_API_SERVICE
+        parameters:
+          endpoints:
+            - function:
+                functionQualifier: $DEFAULT
+                isIntegratedResponse: true
+              method: GET
+              path: /Bilibili_OG
+          environment: release
+          protocols:
+            - http
+            - https
+          serviceId: service-fm843qe8
+  handler: index.main_handler
+  memorySize: 128
+  name: Bilibili_OG
+  namespace: default
+  publicAccess: true
+  region: ap-singapore
+  runtime: Php7
+  src: ./src
+  timeout: 3
+name: ap-singapore_default_Bilibili_OG
+org: '1252139706'
+stage: dev
+# When using this configuration file for deployment, make sure the file name is "serverless.yml".
+# For more information: https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md
