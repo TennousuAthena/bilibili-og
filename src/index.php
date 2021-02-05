@@ -44,6 +44,10 @@ context:'.json_encode($context, JSON_PRETTY_PRINT);
 
     $play_url = "https://player.bilibili.com/player.html?aid=$aid&bvid=$bvid&high_quality=$hq&danmaku=$danmaku";
 
+    if(!($_GET['p'] === "" or $_GET['p'] ==1)){
+        $play_url = $play_url."&page=".$_GET['p'];
+    }
+
     $str = str_replace("{{video_title}}", $result->data->title, $str);
     $str = str_replace("{{video_description}}", $result->data->desc, $str);
     $str = str_replace("{{video_poster}}", $result->data->pic, $str);
